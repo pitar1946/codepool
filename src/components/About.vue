@@ -1,5 +1,5 @@
 <template>
-<section class="about">
+<section id="about" class="about">
  <div class="container">
    <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12">
@@ -23,9 +23,6 @@
         <h4>server side</h4>
         <p>Node.js | PHP | Ruby on Rails | Java | C# | Swift | React Native</p>
     </div>
-     <div class="button">
-        <a href="#">start a project</a>
-      </div>
    </div>
  </div>
 </section>
@@ -87,24 +84,6 @@
 span{
   margin-bottom: 10px;
 }
-.button{
-  height: 48px;
-  width: 200px;	
-  border: 1px solid #FFFFFF;
-  text-align: center;
-  margin: 0 auto;
-  margin-left: 80%;
-}
-.button a{
-  height: 21px;
-  width: 117px;
-  color: #FFFFFF;
-  font-size: 18px;
-  line-height: 47px;
-  text-transform: uppercase;
-}
-.button a:hover{
-  text-decoration: none;
-}
+
 
 </style>

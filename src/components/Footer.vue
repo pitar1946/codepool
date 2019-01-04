@@ -1,12 +1,14 @@
 <template>
-    <div class="footer-wrapper">
+    <footer id="footer" class="footer-wrapper">
      <div class="footer">
           <div class="col col1">
             <ul>
-              <li><a href="#">über uns</a></li>
-              <li><a href="#">karriere</a></li>
-              <li><a href="#">datenschutz</a></li>
-              <li><a href="#">impressum</a></li>
+              <li><a href="#">home</a></li>
+              <li><a href="#">about</a></li>
+              <li><a href="#">work</a></li>
+              <li><a href="#">mission</a></li>
+              <li><a href="#">blog</a></li>
+              <li><a href="#">contact</a></li>
             </ul>
           </div>
           <div class="col col2">
@@ -17,10 +19,10 @@
           <div class="col col3">
             <div class="footer_icons">
               <ul>
-                <li><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook' }" class="fa"/></li>
-                <li><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'instagram' }" class="fa"/></li>
-                <li><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'twitter' }" class="fa"/></li>
-                <li><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'youtube' }" class="fa"/></li>
+                <li><a href="https://www.facebook.com/codepoolio/" target="_blank"><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'facebook' }" class="fa"/></a></li>
+                <li><a href="https://www.instagram.com/codepoolio/" target="_blank"><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'instagram' }" class="fa"/></a></li>
+                <li><a href="https://twitter.com/codepoolio" target="_blank"><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'twitter' }" class="fa"/></a></li>
+                <li><a href="#"><font-awesome-icon :icon="{ prefix: 'fab', iconName: 'youtube' }" class="fa"/></a></li>
               </ul>
             </div>
             <ul>
@@ -33,7 +35,7 @@
             </ul>
           </div>
         </div>
-      </div>  
+      </footer>  
 </template>
 <script>
 import Logo from './Logo'
@@ -50,11 +52,11 @@ export default {
   },
   methods: {
        scrollStep: function(){
-        if (window.pageYOffset === 0) {
+        let yPosition = window.pageYOffset;
+        if (yPosition === 0) {
          clearInterval(this.intervalId);
         } 
-        window.scroll(0, window.pageYOffset - this.backScroll);
-         console.log(this.backScroll)
+        window.scroll(0, yPosition - this.backScroll);
        },
        scrollToTop: function(){
          let intervalId = setInterval(this.scrollStep, this.delayInMs);
@@ -73,7 +75,6 @@ export default {
 
 .footer {
   width: 100%;
-  margin: 0 0 0 20px;
   overflow: hidden;
 }
 
@@ -106,6 +107,7 @@ export default {
 }
 .footer .col1 a:hover {
   color: #8B80F9;
+  text-decoration: none;
 }
 .footer .col2 .footer-logo-wrapper {
   display: flex;
@@ -134,7 +136,7 @@ export default {
   font-size: 15px;
 }
 .footer .col3 ul li a {
-  color: #8B80F9;
+  color: #FFFFFF;
 }
 
 .footer_icons {

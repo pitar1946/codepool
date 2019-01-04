@@ -1,5 +1,5 @@
 <template>
-<header class="header">
+<header id="header" class="header">
  <div class="container">
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12">
@@ -12,7 +12,7 @@
           <p>Working with Codepool means being a part of development, progress, sustainable solution, and expertise.</p>
         </div> 
         <div class="button">
-         <a href="#">start a project</a>
+         <a href="#" v-scroll-to="'#contact'">start a project</a>
          </div>
     </div>
    </div>
@@ -76,9 +76,11 @@ export default {
   line-height: 47px;
   text-transform: uppercase;
 }
+.button:hover{
+  background-color: #A488E5;
+}
 .button a:hover{
   text-decoration: none;
 }
-
 
 </style>

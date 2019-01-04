@@ -8,11 +8,11 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">home</a>
+      <li class="nav-item">
+        <a class="nav-link active" href="#" v-scroll-to="'#header'" >home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">about</a>
+        <a class="nav-link" href="#" v-scroll-to="'#about'">about</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">work</a>
@@ -24,7 +24,7 @@
         <a class="nav-link" href="#">blog</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">contcat</a>
+        <a class="nav-link" href="#" v-scroll-to="'#contact'">contact</a>
       </li>
     </ul>
   </div>
@@ -35,22 +35,33 @@
 export default {
     methods: {
     showLogo: function(){
+      document.addEventListener('scroll', function(){
       let logo = document.querySelector('.navbar-logo-circle');
       let yPosition = window.pageYOffset;
-        if( yPosition > 700 ){
-          logo.style.display = 'block'
-         } 
-        else{
+         if( yPosition > 700 ){
+           logo.style.display = 'block'
+          } 
+         else{
            logo.style.display = 'none'   
-         } 
-       } 
+          } 
+        })
+       },
+     addClassActive: function() {
+        document.addEventListener('click', function () {
+	      if (!event.target.classList.contains('nav-link')) return;
+	          event.target.classList.add('active');
+	          let links = document.querySelectorAll('.nav-link');
+           	for (let i = 0; i < links.length; i++) {
+		        if (links[i] === event.target) continue;
+	          links[i].classList.remove('active');
+	         }
+         }, false);
+       }   
     },
     created () {
-      window.addEventListener('scroll', this.showLogo);
-    },  
-    destroyed () {
-      window.removeEventListener('scroll', this.showLogo);
-  }
+      this.showLogo();
+      this.addClassActive();
+    }
 }
 </script>
 <style scoped>
@@ -65,8 +76,9 @@ export default {
  .nav-link {
    text-transform: uppercase !important;
    color: #FFFFFF !important;
-   width: 80px;
    text-align: center;
+   background-color: #000000 !important;
+   margin-bottom: -6px;
  }
  .nav-link a{
    height: 18px;
@@ -81,7 +93,12 @@ export default {
  }
  .navbar-logo{
      width: 150px;
+     display: block;
  }
+ .navbar-toggler{
+    cursor: pointer;
+    outline: none;
+}
 </style>
 
 
